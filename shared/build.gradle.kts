@@ -32,6 +32,9 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
 
+                implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+                implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+                implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
 
             }
         }
@@ -41,9 +44,7 @@ kotlin {
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.10.1")
 
-                implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-                implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
-                implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+
             }
         }
         val iosX64Main by getting
