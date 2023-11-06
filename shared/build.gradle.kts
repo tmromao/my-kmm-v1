@@ -6,6 +6,8 @@ plugins {
 
 kotlin {
     androidTarget()
+    iosArm64()
+    iosSimulatorArm64()
 
     listOf(
         iosX64(),
@@ -74,4 +76,7 @@ android {
     kotlin {
         jvmToolchain(17)
     }
+}
+dependencies {
+    implementation("androidx.core:core-ktx:+")
 }
