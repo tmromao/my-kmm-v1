@@ -6,6 +6,8 @@ plugins {
 
 kotlin {
     androidTarget()
+    iosArm64()
+    iosSimulatorArm64()
 
     listOf(
         iosX64(),
@@ -19,6 +21,9 @@ kotlin {
     }
 
     sourceSets {
+
+        val voyagerVersion = extra["voyager.version"] as String
+
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
@@ -26,6 +31,11 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+
+                implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+                implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+                implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+
             }
         }
         val androidMain by getting {
@@ -33,6 +43,8 @@ kotlin {
                 api("androidx.activity:activity-compose:1.7.2")
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.10.1")
+
+
             }
         }
         val iosX64Main by getting
@@ -65,4 +77,7 @@ android {
     kotlin {
         jvmToolchain(17)
     }
+}
+dependencies {
+    implementation("androidx.core:core-ktx:+")
 }
